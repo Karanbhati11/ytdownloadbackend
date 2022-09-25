@@ -2,10 +2,13 @@ const express = require("express");
 const ytdl = require("ytdl-core");
 const app = express();
 const router = express.Router();
+const cors = require("cors");
+
 const serverless = require("serverless-http");
 router.get("/", (req, res) => {
   res.send("Working");
 });
+app.use(cors());
 
 router.get("/download", async (req, res) => {
   try {
